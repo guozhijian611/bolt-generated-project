@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+    <html lang="zh-CN">
+      <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>百家乐自动投注</title>
+        <link rel="stylesheet" href="/src/style.css">
+      </head>
+      <body>
+        <div id="app">
+          <h1>百家乐自动投注</h1>
+          <div class="settings">
+            <div class="setting-group">
+              <label for="baseBet">基础投注额:</label>
+              <input type="number" id="baseBet" value="10" min="1">
+            </div>
+            <div class="setting-group">
+              <label for="maxRounds">最大轮数:</label>
+              <input type="number" id="maxRounds" value="100" min="1">
+            </div>
+            <div class="setting-group">
+              <label for="formula">投注公式:</label>
+              <select id="formula">
+                <option value="martingale">马丁格尔</option>
+                <option value="fibonacci">斐波那契</option>
+                <option value="paroli">帕罗利</option>
+                <option value="dalembert">达朗贝尔</option>
+                <option value="oneThreeTwoSix">1-3-2-6</option>
+                <option value="labouchere">拉布谢尔</option>
+                <option value="oscarsGrind">奥斯卡磨</option>
+                <option value="reverseMartingale">逆向马丁格尔</option>
+                <option value="flatBetting">固定注码</option>
+                <option value="kent">肯特策略</option>
+                <option value="monteCarlo">蒙特卡洛</option>
+                <option value="cubanStrategy">古巴策略</option>
+                <option value="tenPercentStrategy">10%策略</option>
+              </select>
+            </div>
+          </div>
+          <div class="formula-info">
+            <h2>公式介绍</h2>
+            <div id="formulaDescription"></div>
+          </div>
+          <button id="startBtn">开始自动投注</button>
+          <div id="chartContainer" style="width: 100%; max-width: 800px; margin: 20px auto;">
+            <canvas id="balanceChart"></canvas>
+          </div>
+          <div id="winRate"></div>
+          <div id="results">
+            <table id="resultsTable">
+              <thead>
+                <tr>
+                  <th>轮数</th>
+                  <th>投注额</th>
+                  <th>结果</th>
+                  <th>盈利</th>
+                  <th>余额</th>
+                </tr>
+              </thead>
+              <tbody>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <script type="module" src="/src/main.js"></script>
+      </body>
+    </html>
